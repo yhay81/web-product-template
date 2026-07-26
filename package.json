@@ -5,13 +5,15 @@
   "type": "module",
   "scripts": {
     "dev": "vp dev",
+    "indexnow": "pwsh -NoLogo -NoProfile -File ops/submit-indexnow.ps1 -BaseUrl https://web-product-starter.yusuke8h.workers.dev",
     "build": "vp build",
     "preview": "vp preview",
     "check": "vp check",
     "check:fix": "oxlint --fix . && oxfmt --write . && tsc --noEmit",
     "test": "vp test --run --config vitest.config.ts",
     "test:watch": "vp test --config vitest.config.ts",
-    "deploy": "npm run check && npm test && npm run build && wrangler deploy",
+    "release:check": "pwsh -NoLogo -NoProfile -File ops/validate-product.ps1",
+    "deploy": "npm run release:check && npm run check && npm test && npm run build && wrangler deploy",
     "cf-typegen": "wrangler types"
   },
   "dependencies": {

@@ -12,6 +12,9 @@ Cloudflare Workers、Hono、Hono JSX、Vite+を標準に、実利用で仮説を
 - `SECURITY.md`: 実装済み対策、未対応の制約、非公開連絡経路
 - `STACK.md`: 共通選択から外した技術と、その根拠
 - `wrangler.jsonc`: Worker名、互換日付、必要なBindings
+- `src/ui/pages.tsx`: 説明用ヒーローを残さず、中核jobを完了できる実際の操作面
+
+初期の`data-template-surface="replace-before-release"`は、プロダクト固有の操作面へ置き換えた時点で削除してください。大きなコピーや検証条件で用途を説明せず、入力、編集、プレビュー、結果のデザインから何ができるか伝わる状態を公開条件にします。
 
 ## Local development
 
@@ -36,9 +39,11 @@ npm run build
 CloudflareのBindingsと秘密値を確認し、同じ品質ゲートを通してから公開します。
 
 ```powershell
+npm run release:check
 npm run deploy
+npm run indexnow
 ```
 
-初回deploy後は実URLで主要jobを最後まで通し、Worker startup、認証、永続化、削除を確認してください。request pathへ追加する依存は、Node.js専用の`require`や`fs`ではなくWorkers互換のuniversal ESM/Web API実装を選びます。
+初回deploy後は実URLで主要jobを最後まで通し、Worker startup、認証、永続化、削除を確認してください。所有確認ファイルと`/sitemap.xml`を確認してから`npm run indexnow`を実行します。request pathへ追加する依存は、Node.js専用の`require`や`fs`ではなくWorkers互換のuniversal ESM/Web API実装を選びます。
 
 ユーザーデータ、秘密値、通報内容、productionログをGitへ保存しないでください。

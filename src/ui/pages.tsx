@@ -4,69 +4,61 @@ import { Layout } from "./layout";
 export function HomePage() {
   return (
     <Layout>
-      <section class="hero">
-        <div class="hero-copy">
-          <p class="eyebrow">{product.name}</p>
-          <h1>{product.headline}</h1>
-          <p class="lead">{product.description}</p>
-          <div class="actions">
-            <a class="button primary" href="#product">
-              はじめる
-            </a>
-            <a class="button secondary" href="/privacy">
-              プライバシー
-            </a>
+      <section class="product-shell" id="product">
+        <header class="product-heading">
+          <div>
+            <p class="eyebrow">{product.name}</p>
+            <h1>{product.headline}</h1>
           </div>
-        </div>
-        <div class="product-preview" aria-label="サービスの操作イメージ" id="product">
-          <div class="preview-window">
-            <div class="preview-bar">
-              <span></span>
-              <span></span>
-              <span></span>
+          <p class="product-summary">{product.description}</p>
+        </header>
+        <div class="product-workspace" data-template-surface="replace-before-release">
+          <form class="tool-panel">
+            <div class="panel-heading">
+              <h2>入力</h2>
+              <span>未保存</span>
             </div>
-            <div class="preview-body">
-              <aside aria-hidden="true">
-                <span></span>
-                <span></span>
-                <span></span>
-              </aside>
-              <div class="preview-content" aria-hidden="true">
-                <span class="preview-title"></span>
-                <span class="preview-line"></span>
-                <div class="preview-cards">
+            <label class="field">
+              <span>内容</span>
+              <textarea placeholder="ここに入力" rows={7}></textarea>
+            </label>
+            <fieldset>
+              <legend>仕上がり</legend>
+              <div class="choice-row">
+                <label>
+                  <input checked name="style" type="radio" />
+                  <span>標準</span>
+                </label>
+                <label>
+                  <input name="style" type="radio" />
+                  <span>簡潔</span>
+                </label>
+              </div>
+            </fieldset>
+            <button class="button primary" type="button">
+              作成する
+            </button>
+          </form>
+          <section class="output-panel" aria-label="結果">
+            <div class="panel-heading">
+              <h2>プレビュー</h2>
+              <span>自動更新</span>
+            </div>
+            <div class="output-canvas" aria-hidden="true">
+              <div class="output-card">
+                <span class="output-kicker"></span>
+                <span class="output-title"></span>
+                <span class="output-line"></span>
+                <span class="output-line short"></span>
+                <div class="output-grid">
                   <span></span>
                   <span></span>
                   <span></span>
                 </div>
-                <span class="preview-action"></span>
               </div>
             </div>
-          </div>
+          </section>
         </div>
-      </section>
-      <section class="product-flow" aria-label="使い方">
-        <article>
-          <span>1</span>
-          <div>
-            <h2>始める</h2>
-            <p>最初の入力を迷わせない。</p>
-          </div>
-        </article>
-        <article>
-          <span>2</span>
-          <div>
-            <h2>完了する</h2>
-            <p>中核の仕事をここで終える。</p>
-          </div>
-        </article>
-        <article>
-          <span>3</span>
-          <div>
-            <h2>結果を受け取る</h2>
-            <p>次に必要な状態が残る。</p>
-          </div>
-        </article>
       </section>
     </Layout>
   );

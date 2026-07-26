@@ -61,6 +61,8 @@ $TextExtensions = @(
     ".md",
     ".ts",
     ".tsx",
+    ".txt",
+    ".xml",
     ".yml"
 )
 
@@ -73,5 +75,15 @@ Get-ChildItem -LiteralPath $Target -Recurse -File |
         }
         [System.IO.File]::WriteAllText($_.FullName, $Content)
     }
+
+$IndexNowPlaceholder = Join-Path $Target "public\INDEXNOW_KEY.txt"
+if (-not (Test-Path -LiteralPath $IndexNowPlaceholder -PathType Leaf)) {
+    throw "IndexNow key placeholder is missing: $IndexNowPlaceholder"
+}
+
+$IndexNowKey = [guid]::NewGuid().ToString("N")
+$IndexNowKeyPath = Join-Path $Target "public\$IndexNowKey.txt"
+Move-Item -LiteralPath $IndexNowPlaceholder -Destination $IndexNowKeyPath
+[System.IO.File]::WriteAllText($IndexNowKeyPath, $IndexNowKey)
 
 Write-Output $Target
