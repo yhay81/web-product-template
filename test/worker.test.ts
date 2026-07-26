@@ -15,9 +15,13 @@ describe("worker", () => {
 
     expect(response.status).toBe(200);
     expect(response.headers.get("content-security-policy")).toContain("default-src 'self'");
-    expect(html).toContain('<html lang="ja">');
+    expect(html).toContain('lang="ja"');
+    expect(html).toContain('itemscope=""');
+    expect(html).toContain('itemtype="https://schema.org/WebApplication"');
     expect(html).toContain("ひとつの仕事を、迷わず完了。");
-    expect(html).toContain('class="product-preview"');
+    expect(html).toContain('class="product-workspace"');
+    expect(html).not.toContain('class="hero"');
+    expect(html).not.toContain('class="product-flow"');
     expect(html).not.toContain("PUBLIC VALIDATION");
     expect(html).not.toContain("成功条件を先に公開します。");
   });

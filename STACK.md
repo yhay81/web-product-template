@@ -23,6 +23,9 @@
 2. D1/R2等のbinding、secret、rate limit、Turnstile、期限削除を本番へ設定する。
 3. 実URLで登録/ログイン、主要データ作成、閲覧、削除までをsmoke testする。
 4. モバイル幅、キーボード、label/landmark、console error、CSPを確認する。
-5. 公開リポジトリでCI、private vulnerability reporting、検証Issueを有効にする。
-6. `npm run metrics`で登録から中核job完了・再利用まで集計できることを確認する。
-7. Open Graph画像、canonical URL、`robots.txt`、`sitemap.xml`を本番URLで確認する。
+5. ファーストビューが説明用ヒーローではなく実際の操作面であり、見出しを読まなくても用途が分かることを確認する。
+6. 検証条件、成功指標、運営判断などのメタ情報がサービス画面へ露出していないことを確認する。
+7. 公開リポジトリでCI、private vulnerability reporting、検証Issueを有効にする。
+8. `npm run metrics`で登録から中核job完了・再利用まで集計できることを確認する。
+9. Open Graph画像、Schema.org情報、canonical URL、`robots.txt`、`sitemap.xml`、IndexNow所有確認ファイルを本番URLで確認する。
+10. デプロイ後に`npm run indexnow`を実行し、HTTP 200または202を確認する。
