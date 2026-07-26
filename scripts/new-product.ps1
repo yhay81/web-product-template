@@ -12,6 +12,10 @@ param(
     [ValidateNotNullOrEmpty()]
     [string]$Description,
 
+    [Parameter(Mandatory)]
+    [ValidateNotNullOrEmpty()]
+    [string]$Headline,
+
     [string]$Destination
 )
 
@@ -47,6 +51,7 @@ $Replacements = [ordered]@{
     "Web Product Starter" = $Name
     "web-product-starter" = $Slug
     "Cloudflare、Hono、JSX、Vite+で小さく検証するWebプロダクト。" = $Description
+    "ひとつの仕事を、迷わず完了。" = $Headline
 }
 
 $TextExtensions = @(

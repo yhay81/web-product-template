@@ -24,3 +24,5 @@
 3. 実URLで登録/ログイン、主要データ作成、閲覧、削除までをsmoke testする。
 4. モバイル幅、キーボード、label/landmark、console error、CSPを確認する。
 5. 公開リポジトリでCI、private vulnerability reporting、検証Issueを有効にする。
+6. `npm run metrics`で登録から中核job完了・再利用まで集計できることを確認する。
+7. Open Graph画像、canonical URL、`robots.txt`、`sitemap.xml`を本番URLで確認する。
