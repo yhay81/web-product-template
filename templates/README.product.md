@@ -6,7 +6,7 @@ Cloudflare Workers、Hono、Hono JSX、Vite+を標準に、実利用で仮説を
 
 実装前または公開前に、次をプロダクト固有の内容へ更新してください。
 
-- `src/config/product.ts`: 名前、説明、検証段階、期限、成功条件
+- `src/config/product.ts`: 名前、説明、利用者向けの短い見出し
 - `EXPERIMENT.md`: 対象利用者、比較方法、成功・失敗条件
 - `PRIVACY.md`: 実際に保存するデータ、保持期間、削除経路
 - `SECURITY.md`: 実装済み対策、未対応の制約、非公開連絡経路

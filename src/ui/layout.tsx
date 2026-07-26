@@ -30,7 +30,9 @@ export function Layout({
           <a class="brand" href="/">
             {product.name}
           </a>
-          <span class="stage">{product.experiment.stage}</span>
+          <a class="nav-cta" href="#product">
+            はじめる
+          </a>
         </header>
         <main id="main">{children}</main>
         <footer>

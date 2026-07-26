@@ -32,7 +32,7 @@ npm run build
 
 ## Create a product
 
-GitHubではこのリポジトリをTemplate repositoryとして設定し、各プロダクトを独立リポジトリとして生成します。生成後は`src/config/product.ts`、`EXPERIMENT.md`、`PRIVACY.md`を対象プロダクト向けに更新してください。
+GitHubではこのリポジトリをTemplate repositoryとして設定し、各プロダクトを独立リポジトリとして生成します。生成後は`src/config/product.ts`、`EXPERIMENT.md`、`PRIVACY.md`、`METRICS.md`を対象プロダクト向けに更新してください。サービス画面は利用者のjobと操作イメージに集中させ、検証条件や運営上の判断材料はリポジトリ側へ分離します。
 
 ローカルでは安全なコピー生成スクリプトを使えます。既存ディレクトリは上書きしません。
 生成先へファクトリー専用の`scripts/`と`templates/`はコピーせず、プロダクト向けREADMEへ差し替えます。
@@ -41,7 +41,8 @@ GitHubではこのリポジトリをTemplate repositoryとして設定し、各�
 .\scripts\new-product.ps1 `
   -Slug "creator-inbox" `
   -Name "Creator Inbox" `
-  -Description "創作者が、お題・感想・質問を安心して受け取るための公開検証。"
+  -Description "創作者が、匿名の感想・お題・質問を安心して受け取れる受信箱。" `
+  -Headline "匿名の声を、ひとつの受信箱へ。"
 ```
 
 ## Deployment
