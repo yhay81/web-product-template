@@ -9,6 +9,8 @@ Cloudflare Workers、Hono、Hono JSX、Vite+を標準に、実利用で仮説を
 - 認証、永続化、アップロード、非同期処理は必要な場合だけ追加する。
 - request pathの依存は、Cloudflare Workersで動くuniversal ESM/Web API実装を選ぶ。
 - ユーザーデータ、秘密値、通報内容をGitへ保存しない。
+- 正規URLは`https://<product-slug>.yhay81.com`とし、WranglerのCustom Domain設定を配信構成の正本にする。
+- 認証cookieは各サービスのhostだけへ限定し、`.yhay81.com`全体で共有しない。
 - ファーストビューには説明用ヒーローではなく、実際の入力・編集・結果画面を置く。
 - 検証条件や運営上の判断材料はリポジトリへ置き、サービス画面へ表示しない。
 - 30日以内に継続、変更、停止を判断する。
@@ -49,7 +51,7 @@ GitHubではこのリポジトリをTemplate repositoryとして設定し、各�
 
 ## Deployment
 
-`wrangler.jsonc`の名前、互換日付、必要なBindingsを確認してから、CIと同じ検査を通します。
+`wrangler.jsonc`の名前、`<product-slug>.yhay81.com`のCustom Domain、互換日付、必要なBindingsを確認してから、CIと同じ検査を通します。新規サービスは`workers.dev`を公開面にせず、正規サブドメインだけを配信します。
 
 ```powershell
 npm run release:check

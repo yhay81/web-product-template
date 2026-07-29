@@ -3,8 +3,14 @@
   "name": "web-product-starter",
   "main": "src/worker.tsx",
   "compatibility_date": "2026-07-26",
-  "workers_dev": true,
+  "workers_dev": false,
   "preview_urls": false,
+  "routes": [
+    {
+      "pattern": "web-product-starter.yhay81.com",
+      "custom_domain": true,
+    },
+  ],
   "observability": {
     "enabled": true,
   },
