@@ -2,6 +2,8 @@
 
 Cloudflare Workers、Hono、Hono JSX、Vite+を標準に、実利用で仮説を検証するWebプロダクトです。
 
+本番: <https://web-product-starter.yhay81.com>
+
 ## Product contract
 
 実装前または公開前に、次をプロダクト固有の内容へ更新してください。
@@ -11,7 +13,7 @@ Cloudflare Workers、Hono、Hono JSX、Vite+を標準に、実利用で仮説を
 - `PRIVACY.md`: 実際に保存するデータ、保持期間、削除経路
 - `SECURITY.md`: 実装済み対策、未対応の制約、非公開連絡経路
 - `STACK.md`: 共通選択から外した技術と、その根拠
-- `wrangler.jsonc`: Worker名、互換日付、必要なBindings
+- `wrangler.jsonc`: Worker名、`web-product-starter.yhay81.com`のCustom Domain、互換日付、必要なBindings
 - `src/ui/pages.tsx`: 説明用ヒーローを残さず、中核jobを完了できる実際の操作面
 
 初期の`data-template-surface="replace-before-release"`は、プロダクト固有の操作面へ置き換えた時点で削除してください。大きなコピーや検証条件で用途を説明せず、入力、編集、プレビュー、結果のデザインから何ができるか伝わる状態を公開条件にします。
@@ -36,7 +38,7 @@ npm run build
 
 ## Deployment
 
-CloudflareのBindingsと秘密値を確認し、同じ品質ゲートを通してから公開します。
+CloudflareのBindingsと秘密値を確認し、`https://web-product-starter.yhay81.com`を正規URLとして同じ品質ゲートを通してから公開します。WranglerがCustom DomainのDNSと証明書を管理し、新規本番では`workers.dev`を公開しません。
 
 ```powershell
 npm run release:check

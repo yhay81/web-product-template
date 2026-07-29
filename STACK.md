@@ -6,6 +6,7 @@
 - HTTP/UI: Hono、Hono JSX、Web標準API。クライアントJavaScriptは主要jobに必要な範囲だけ加える。
 - Tooling: Vite+、TypeScript、Oxlint/Oxfmt、Vitest、Wrangler。
 - Authentication: 所有者アカウントや長期sessionが必要な場合だけBetter Auth。受取人・回答者など一回利用者へ登録を強制しない。
+- Public origin: `https://<product-slug>.yhay81.com`のCloudflare Workers Custom Domain。`workers.dev`は新規本番で無効にし、cookieを親ドメインへ広げない。
 - Data access: 小さいschemaはDrizzle ORMと手書きSQL migration。検索専用データや外部APIは、D1へ複製する理由を先に定義する。
 
 ## Selection rules
